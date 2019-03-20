@@ -1,0 +1,4 @@
+testrail:
+  url: https://<example>.testrail.io/
+  user: user_email@example.com
+  password: password
