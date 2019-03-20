@@ -1,13 +1,17 @@
-Given(/^I am on google UK$/) do
-  # visit method goes to google.co.uk the specified Capybara.app_host in env.rb
-  # visit '/'
+Given(/^I am on Hingeto homepage$/) do
+  visit '/'
 end
 
-Given(/^I search for cucumber$/) do
-  # fill the cucumber search box
-  fill_in 'gLFyf', :with => 'cucumber'
-  # click on the google search button
-  click_button 'Google Search'
+And(/^I can see the incredible slogan$/) do
+  find('.section-hero h1').has_content?('We Help Great Brands and Retailers Grow Their Revenues Online')
+end
+
+When(/^I click the Retail Solutions button$/) do
+  find('.buttons').click_on('Retail Solutions')
+end
+
+Then(/^I should be able to retail solutions page$/) do
+  find('header h1').has_content?('Retail Solutions')
 end
 
 Then(/^I should be able to access the cucumber wiki page$/) do
@@ -15,4 +19,5 @@ Then(/^I should be able to access the cucumber wiki page$/) do
   # find(:xpath, "//a[contains(.,'Cucumber - Wikipedia, the free encyclopedia')]").click
   # test the h1 title is equal to Cucumber
   # find('h1').text == 'Cucumber'
+  click_button 'Random'
 end

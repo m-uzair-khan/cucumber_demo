@@ -4,7 +4,7 @@ require 'cucumber'
 require 'selenium-webdriver'
 
 Capybara.default_driver = :selenium
-Capybara.app_host = "http://www.google.co.uk"
+Capybara.app_host = 'https://www.hingeto.com' # todo: add to config
 Capybara.register_driver :selenium do |app|
   browser = (ENV['browser'] || 'chrome').to_sym
   Capybara::Selenium::Driver.new app, browser: browser, desired_capabilities: {
@@ -15,7 +15,6 @@ end
 World(Capybara::DSL)
 
 After do |scenario|
-  p 'After Hook ###########'
   ResultUploader.new(scenario).upload_result
 end
 

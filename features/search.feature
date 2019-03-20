@@ -1,11 +1,13 @@
-Feature: Search for Cucumber in Google
+Feature: Discover Hingeto
 
-  Scenario: C100 Search for cucumber wiki page
-    Given I am on google UK
-    And I search for cucumber
-    Then I should be able to access the cucumber wiki page
+  @uk
+  Scenario: C328 Explore Homepage and find what Hingeto is about
+    Given I am on Hingeto homepage
+    And I can see the incredible slogan
+    When I click the Retail Solutions button
+    Then I should be able to retail solutions page
 
   @some_tag
-  Scenario: C200 Search for cucumber 11111111
-    Given I am on google UK
+  Scenario: C329 Search for cucumber
+    Given I am on Hingeto homepage
     Then I should be able to access the cucumber wiki page

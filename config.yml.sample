@@ -2,3 +2,4 @@ testrail:
   url: https://<example>.testrail.io/
   user: user_email@example.com
   password: password
+  run_id: 1234
