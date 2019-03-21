@@ -1,3 +1,4 @@
+@subset1 @hingeto
 Feature: Discover Hingeto
 
   @uk

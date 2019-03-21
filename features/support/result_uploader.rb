@@ -1,23 +1,22 @@
-require_relative 'testrail'
+require_relative 'lib/testrail'
 
 class ResultUploader
 
   attr_accessor :client
-  attr_reader :config
-
-  CONFIG_FILE = 'config.yml'
 
   def initialize(scenario)
     @scenario = scenario
-    load_config
+    @config = Config.new.config['testrail']
     setup_testrail_client
   end
 
   def upload_result
+    puts 'uploading test case result to testrail...'
+
     response = {}
     case_id = @scenario.name.split(' ').first.scan(/\d+/).first rescue nil
     status_id = get_status_id @scenario.status
-    run_id = config['run_id']
+    run_id = @config['run_id']
 
     if case_id && run_id
       response = client.send_post(
@@ -27,6 +26,8 @@ class ResultUploader
     else
       raise 'unable to get case id or run id'
     end
+
+    puts 'result uploaded successfully.'
     response
   end
 
@@ -37,18 +38,9 @@ class ResultUploader
   private
 
   def setup_testrail_client
-    @client = TestRail::APIClient.new(config['url'])
-    @client.user = config['user']
-    @client.password = config['password']
-  end
-
-  def load_config
-    if File.exist? CONFIG_FILE
-      @config = YAML.load_file(CONFIG_FILE)['testrail']
-      raise 'configuration not loaded successfully' if @config.nil?
-    else
-      raise 'Missing configuration file'
-    end
+    @client = TestRail::APIClient.new(@config['url'])
+    @client.user = @config['user']
+    @client.password = @config['password']
   end
 
   def get_status_id(status)

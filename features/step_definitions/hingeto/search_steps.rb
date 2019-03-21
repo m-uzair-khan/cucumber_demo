@@ -19,5 +19,5 @@ Then(/^I should be able to access the cucumber wiki page$/) do
   # find(:xpath, "//a[contains(.,'Cucumber - Wikipedia, the free encyclopedia')]").click
   # test the h1 title is equal to Cucumber
   # find('h1').text == 'Cucumber'
-  click_button 'Random'
+  raise 'Deliberately failed'
 end

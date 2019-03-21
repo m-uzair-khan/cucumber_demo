@@ -2,9 +2,10 @@ require 'capybara'
 require 'capybara/dsl'
 require 'cucumber'
 require 'selenium-webdriver'
+require_relative 'config.rb'
 
 Capybara.default_driver = :selenium
-Capybara.app_host = 'https://www.hingeto.com' # todo: add to config
+Capybara.app_host = Config.new.config['app_host']
 Capybara.register_driver :selenium do |app|
   browser = (ENV['browser'] || 'chrome').to_sym
   Capybara::Selenium::Driver.new app, browser: browser, desired_capabilities: {
