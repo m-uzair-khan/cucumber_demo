@@ -1,22 +1,25 @@
 # Project Name
 
-Demo Cucumber Web Automation
+###Demo Cucumber Web Automation
 
 ## Installation
+- Install `chromedriver` to be used by selenium web driver for browser automation
+- Use ruby version `2.5.1`
+- Clone the repo and run `bundle install`
 
-TODO: Describe the installation process
+#### Dependencies
+- ruby version: 2.5.1
+- Google Chrome browser
+- Chromedriver
+
 
 ## Usage
 
-TODO: Write usage instructions
+Run `cucumber` command to execute the test cases.
+To execute a subset of cases, use tag like `cucumber -t @signin`
 
-## Contributing
-
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+Test results are uploaded to Test Rail. Use test case ID (from Test Rail) ahead of every scenario in `.feature` files.
+User `config.yml` for Test Rail credentials. Add `run_id` to upload results against a Test Run.
 
 ## History
 
