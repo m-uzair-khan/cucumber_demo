@@ -1,3 +1,5 @@
+app_host: https://www.google.com
+
 testrail:
   url: https://<example>.testrail.io/
   user: user_email@example.com
